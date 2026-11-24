@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- connect-src * lets the app reach your API; tighten to your own domain before release -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob:; frame-src *; media-src *">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="color-scheme" content="light dark">
+  <title>Real Estate</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app">
+    <!-- signed-in shell -->
+    <div id="shell" class="shell hidden">
+      <header id="topbar">
+        <!-- 768px and wider: three-dash button opens the side nav -->
+        <button id="btnMenu" class="icon-btn only-wide" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><i class="dot hidden" id="menuDot"></i></button>
+        <!-- under 768px: photo + name open the profile -->
+        <button id="profileChip" class="profile-chip only-narrow" aria-label="Profile"><img id="chipPhoto" alt=""><span id="chipName"></span></button>
+        <h1 id="pageTitle"></h1>
+        <span class="spacer"></span>
+        <!-- under 768px: three-dot dropdown (settings, terms, ...) -->
+        <button id="btnDots" class="icon-btn only-narrow" aria-label="More"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg></button>
+        <div id="dotsMenu" class="dropdown hidden" role="menu"></div>
+      </header>
+      <div id="pinned" aria-live="polite"></div>
+      <div class="body">
+        <div id="scrim" class="scrim hidden"></div>
+        <nav id="sidenav" class="sidenav only-wide" aria-label="Main"></nav>
+        <main id="content" tabindex="-1"></main>
+      </div>
+      <!-- under 768px: pinned footer tabs -->
+      <footer id="footer" class="only-narrow" aria-label="Main"></footer>
+    </div>
+
+    <!-- signed-out screens -->
+    <div id="auth" class="auth hidden"></div>
+  </div>
+  <div id="layer"></div>
+
+  <script src="cordova.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/browse.js"></script>
+  <script src="js/rent.js"></script>
+  <script src="js/owner.js"></script>
+  <script src="js/agent.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>

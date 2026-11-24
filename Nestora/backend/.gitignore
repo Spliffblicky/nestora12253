@@ -1,0 +1,8 @@
+.env
+seed/seed.config.php
+storage/logs/*
+storage/private/*
+public/uploads/*
+!public/uploads/.htaccess
+!storage/.htaccess
+node_modules/
